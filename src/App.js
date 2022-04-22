@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import { fetchLiveboard } from './store/actions/irail-action';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const handleRequest = () => {
+    dispatch(fetchLiveboard('bruxelles-central'));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Demo Redux 02 - Ajax</h1>
+
+      <button onClick={handleRequest}>Call API Irail</button>
     </div>
   );
 }
